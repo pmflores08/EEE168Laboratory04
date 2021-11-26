@@ -61,9 +61,10 @@ XUartLite UartLiteInst;
 
 int main()
 {
-    init_platform();
-
-    int Status;
+	init_platform();
+	
+	int Status;
+	
 	Status = XUartLite_Initialize(&UartLiteInst, XPAR_AXI_UARTLITE_0_DEVICE_ID);
 	if (Status != XST_SUCCESS){
 		xil_printf("UART initialization failed\n");
@@ -76,9 +77,9 @@ int main()
 	u8 RxBuffer[BUFFER_SIZE];
 	int rxCount, rxBytes;
 	
+	u32 control, crc, data01, data02, data03, data04, data05, data06;
+	
 	while(1){
-		xil_printf("Enter string: ");
-		
 		/* Initialize RxBuffer */
 		rxCount = 0;
 		RxBuffer[0] = 0x00;
@@ -94,7 +95,7 @@ int main()
 		xil_printf("Data: 0x");
 		for (rxBytes=0; rxBytes<rxCount; rxBytes++){
 			xil_printf("%02X", RxBuffer[rxBytes]);
-			XUartLite_Recv(&UartLiteInst, &RxBuffer[rxBytes], 1)
+			XUartLite_Send(&UartLiteInst, &RxBuffer[rxBytes], 1)
 		}
 		xil_printf("\n")
 	}
