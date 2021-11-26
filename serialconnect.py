@@ -39,7 +39,7 @@ else:
 if args.device:
   serdev = args.device
 else:
-  serdev = '/dev/ttyUSB1'
+  serdev = '/dev/ttyUSB2'
 
 if args.timedelay:
   timedelay = int(args.timedelay)
