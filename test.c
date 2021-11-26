@@ -94,6 +94,7 @@ int main()
 		xil_printf("Data: 0x");
 		for (rxBytes=0; rxBytes<rxCount; rxBytes++){
 			xil_printf("%02X", RxBuffer[rxBytes]);
+			XUartLite_Recv(&UartLiteInst, &RxBuffer[rxBytes], 1)
 		}
 		xil_printf("\n")
 	}
