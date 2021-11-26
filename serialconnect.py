@@ -83,7 +83,8 @@ for line in lines:
   line_bytes = hexstr2byte(line.strip())
   print('Tx: 0x{}'.format(line.strip()))
   ser.write(line_bytes)
-  sleep(1)
+  sleep(5)
+  print(ser.readline())
 
 sleep(timedelay) 
 
