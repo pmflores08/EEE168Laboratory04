@@ -1,5 +1,5 @@
-0xff0411223344550d
-0xff04aabbccddee0d
-0xff02aabbcc0d
-0x0004123456789a0d
-0x0004abcdefefef0d
+ff0411223344550d
+ff04aabbccddee0d
+ff02aabbcc0d
+0004123456789a0d
+0004abcdefefef0d
