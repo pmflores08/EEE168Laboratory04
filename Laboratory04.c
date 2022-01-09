@@ -109,6 +109,7 @@ int main()
     	}
 
     	for (int i=0;i<=DataRegister;i++){
+            Xil_Out32(XPAR_CUSTOMCRC_0_S00_AXI_BASEADDR + 8 + (4*i), data_x_register[i]);
     		if (data_x_register[i] == 0){
     			continue;
     		}
@@ -116,7 +117,6 @@ int main()
     			xil_printf("Data%2d",i);
     			xil_printf(" Register: 0x%02X\n\r",Xil_In32(XPAR_CUSTOMCRC_0_S00_AXI_BASEADDR + 8 + (4*i)));
     		}
-            Xil_Out32(XPAR_CUSTOMCRC_0_S00_AXI_BASEADDR + 8 + (4*i), data_x_register[i]);
     	}
 
     	Xil_Out32(XPAR_CUSTOMCRC_0_S00_AXI_BASEADDR, control_and_status_register);
