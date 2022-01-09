@@ -110,13 +110,13 @@ int main()
 
     	for (int i=0;i<=DataRegister;i++){
     		if (data_x_register[i] == 0){
-    			break;
+    			continue;
     		}
     		else{
-    			Xil_Out32(XPAR_CUSTOMCRC_0_S00_AXI_BASEADDR + 8 + (4*i), data_x_register[i]);
     			xil_printf("Data%2d",i);
     			xil_printf(" Register: 0x%02X\n\r",Xil_In32(XPAR_CUSTOMCRC_0_S00_AXI_BASEADDR + 8 + (4*i)));
     		}
+            Xil_Out32(XPAR_CUSTOMCRC_0_S00_AXI_BASEADDR + 8 + (4*i), data_x_register[i]);
     	}
 
     	Xil_Out32(XPAR_CUSTOMCRC_0_S00_AXI_BASEADDR, control_and_status_register);
